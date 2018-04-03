@@ -199,22 +199,22 @@ Graph LoadLegacyJSONPass(Graph g) {
   if (load.attrs.find("mxnet_version") != load.attrs.end()) {
     version = nnvm::get<int>(*load.attrs["mxnet_version"]);
   }
-  bool upgrading = false;
+//   bool upgrading = false;
   if (version > MXNET_VERSION) {
     LOG(INFO) << "Warning: loading symbol saved by MXNet version " << version
               << " with lower version of MXNet v" << MXNET_VERSION
               << ". May cause undefined behavior. "
               << "Please update MXNet if you encounter any issue";
   } else if (version < MXNET_VERSION) {
-    LOG(INFO) << "Loading symbol saved by previous version v"
-              << version/10000 << "." << (version/100)%100 << "." << version%100
-              << ". Attempting to upgrade...";
-    upgrading = true;
+//     LOG(INFO) << "Loading symbol saved by previous version v"
+//               << version/10000 << "." << (version/100)%100 << "." << version%100
+//               << ". Attempting to upgrade...";
+//     upgrading = true;
   }
   for (auto it = upgrader_list.begin(); it != upgrader_list.end(); ++it) {
     if (it->first > version) load = it->second(load);
   }
-  if (upgrading) LOG(INFO) << "Symbol successfully upgraded!";
+//   if (upgrading) LOG(INFO) << "Symbol successfully upgraded!";
   return load;
 }
 
