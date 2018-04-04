@@ -423,7 +423,8 @@ class NDArray {
   * \return a map from names to NDArrays.
   */
   static std::vector<NDArray> LoadFromBufferToList(const void *buffer, size_t size);
-  /*!  * \brief save a map of string->NDArray to binary file.
+  /*!
+  * \brief save a map of string->NDArray to binary file.
   * \param file_name name of the binary file.
   * \param array_map a map from names to NDArrays.
   */
