@@ -22,7 +22,7 @@
  * \file shuffle_op.cc
  * \brief Operator to shuffle elements of an NDArray
  */
-#if (__GNUC__ > 4 && !defined(__clang__major__)) || (__clang_major__ > 4 && __linux__)
+#if (((__GNUC__ > 4 && !defined(__clang__major__)) || (__clang_major__ > 4 && __linux__)) && (!defined(ANDROID) && !defined(__ANDROID__)))
   #define USE_GNU_PARALLEL_SHUFFLE
 #endif
 

@@ -76,7 +76,7 @@ using namespace mshadow;
 extern "C" {
 
   // Fortran signatures
-  #ifdef __ANDROID__
+  #if (defined(__ANDROID__) || defined(ANDROID))
     #define MXNET_LAPACK_FSIGNATURE1(func, dtype) \
       int func##_(char* uplo, int* n, dtype* a, int* lda, int *info);
   #else
